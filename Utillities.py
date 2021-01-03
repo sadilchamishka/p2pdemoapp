@@ -111,6 +111,7 @@ def LeaveNetwork(clientNode):
         print(data)
 
 def SerachFile(fileName, clientNode):
+    fileName = fileName.replace(" ", "-")
     body = clientNode.ip + " " +str(clientNode.port) + " " + fileName + " " + str(CONST.NUM_HOPS)
     msg = requestBuilder("SER", body)
     addr = (clientNode.ip, clientNode.port)

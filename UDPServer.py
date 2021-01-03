@@ -38,8 +38,9 @@ class UDPServer:
 			currentHop = int(toks[5])
 			filesFound = 0
 			fileNames = ""
+			
 			for file in FD.files:
-				if toks[4] in file:
+				if toks[4].replace("-", " ") in file:
 					filesFound+=1
 					fileNames += " " + file
 			
