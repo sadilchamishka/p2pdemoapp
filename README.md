@@ -1,5 +1,6 @@
 # First start the boostarp server
 cd BootstrapServer
+
 java BootstrapServer
 
 # Spawn a peer by
