@@ -15,11 +15,15 @@ class EndpointAction(object):
 class FlaskServer(object):
 	app = None
 	
-	def __init__(self, name):
+	def __init__(self, name, port):
+		self.port = port
 		self.app = Flask(name)
 
+	def asyncRun(self):
+		self.app.run(port=self.port)
+
 	def run(self):
-		threading.Thread(target=self.app.run).start()
+		threading.Thread(target=self.asyncRun).start()
 	
 	def add_endpoint(self, endpoint=None, endpoint_name=None):
 		self.app.add_url_rule(endpoint, endpoint_name, EndpointAction())
